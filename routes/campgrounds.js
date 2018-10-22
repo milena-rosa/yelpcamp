@@ -38,6 +38,11 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     };
     
     geocoder.geocode(req.body.location, function(err, data){
+        alert("req.body.location: " + req.body.location);
+        alert("ERROR: " + err);
+        alert("data: " + data);
+        alert("!data.length: " + !data.length);
+        
         if(err || !data.length){
             req.flash("error", "Invalid address");
             return res.redirect("back");
